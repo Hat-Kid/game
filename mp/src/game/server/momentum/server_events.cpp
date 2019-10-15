@@ -35,6 +35,11 @@ bool CMomServerEvents::Init()
         g_pFullFileSystem->FindClose(handle);
 
         UnloadConVarOrCommand("plugin_load");
+        UnloadConVarOrCommand("host_limitlocal");
+        UnloadConVarOrCommand("net_fakelag");
+        UnloadConVarOrCommand("net_fakeloss");
+        UnloadConVarOrCommand("net_droppackets");
+        UnloadConVarOrCommand("net_fakejitter");
 
         // Unregister FCVAR_MAPPING convars
         auto pCvar = g_pCVar->GetCommands();
