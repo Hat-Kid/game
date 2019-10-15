@@ -133,7 +133,13 @@ void CMomentumRocketLauncher::RocketLauncherFire()
 #endif
 }
 
-void CMomentumRocketLauncher::PrimaryAttack() { RocketLauncherFire(); }
+void CMomentumRocketLauncher::PrimaryAttack()
+{
+    if (!ShouldBlockPrimaryFire())
+    {
+        RocketLauncherFire();
+    }
+}
 
 bool CMomentumRocketLauncher::CanDeploy()
 {
@@ -141,4 +147,10 @@ bool CMomentumRocketLauncher::CanDeploy()
         return false;
 
     return BaseClass::CanDeploy();
+}
+
+bool CMomentumRocketLauncher::ShouldBlockPrimaryFire()
+{
+    // MOM_TODO: If it's been 0.5 seconds since deploy, return false, else true.
+    return true;
 }

@@ -22,6 +22,7 @@ class CMomentumRocketLauncher : public CWeaponBaseGun
     void GetProjectileFireSetup(CMomentumPlayer *pPlayer, Vector vecOffset, Vector *vecSrc, QAngle *angForward);
 
     bool CanDeploy() OVERRIDE;
+    bool ShouldBlockPrimaryFire() OVERRIDE;
 
     CWeaponID GetWeaponID() const OVERRIDE { return WEAPON_ROCKETLAUNCHER; }
 
